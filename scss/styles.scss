@@ -1,0 +1,117 @@
+@charset "utf-8";
+
+$yellow: #fcdb32;
+$accent: #07487d;
+$primary: $yellow;
+
+@import "bulma-0.7.1//bulma.sass";
+
+.has-text-accent {
+  color: $accent !important;
+}
+
+.has-text-underlined {
+  text-decoration: underline;
+}
+
+.picture-1 {
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.45),
+    rgba(0, 0, 0, 0.45)),
+    url('https://www.datadotdna.com/au/wp-content/uploads/2015/08/tools1.jpg');
+}
+
+.picture-2 {
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.45),
+    rgba(0, 0, 0, 0.45)),
+    url('https://www.datadotdna.com/au/wp-content/uploads/2015/08/tools1.jpg');
+}
+
+.picture-3 {
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.45),
+    rgba(0, 0, 0, 0.45)),
+    url('https://www.datadotdna.com/au/wp-content/uploads/2015/08/tools1.jpg');
+}
+
+.section {
+  background: white;
+}
+
+.headline {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 23vh;
+  font-size: 6rem;
+  font-weight: bold;
+  line-height: 5.8rem;
+}
+
+.wrapper {
+  width: 100%;
+  height: 80vh;
+  overflow: hidden;
+  position: fixed;
+  z-index: -1;
+  top: 0;
+}
+
+.wrapper video {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.parallax {
+  margin-top: 80vh;
+  .title {
+    max-width: 700px;
+    margin: auto;
+  }
+}
+
+video::-webkit-media-controls {
+  display: none !important;
+}
+
+.map-overlay {
+  max-width: 600px;
+  background: $primary;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+  bottom: 0px;
+  padding: 2rem 0rem;
+}
+
+table {
+  margin: auto;
+}
+
+tr td:not(:last-child) {
+  padding-right: 3rem;
+}
+
+.picture {
+  width: 100%;
+  display: block;
+  background-size: cover;
+  background-position: center;
+  line-height: 350px;
+}
+
+.navbar {
+  position: absolute;
+  left: 0;
+  right: 0;
+  background-color: transparent;
+  margin-top: 2rem;
+
+  .navbar-item:not(:last-child):after {
+    content: '|';
+    margin-left: 1.5rem;
+  }
+}

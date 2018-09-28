@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <title>My custom Bulma website</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <script defer src="https://use.fontawesome.com/releases/v5.1.0/js/all.js"></script>
+  <style type="text/css">
+    /* Set a size for our map container, the Google Map will take up 100% of this container */
+    #map {
+      width: 100%;
+      height: 600px;
+    }
+  </style>
+  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
+
+  <script type="text/javascript">
+    // When the window has finished loading create our google map below
+    google.maps.event.addDomListener(window, 'load', init);
+
+    function init() {
+      // Basic options for a simple Google Map
+      // For more options see: https://developers.google.com/maps/documentation/javascript/reference#MapOptions
+      var mapOptions = {
+        // How zoomed in you want the map to start at (always required)
+        zoom: 11,
+
+        // The latitude and longitude to center the map (always required)
+        center: new google.maps.LatLng(40.6700, -73.9400), // New York
+
+        // How you would like to style the map. 
+        // This is where you would paste any style found on Snazzy Maps.
+        styles: [{
+          "featureType": "all",
+          "stylers": [{
+            "saturation": 0
+          }, {
+            "hue": "#e7ecf0"
+          }]
+        }, {
+          "featureType": "road",
+          "stylers": [{
+            "saturation": -70
+          }]
+        }, {
+          "featureType": "transit",
+          "stylers": [{
+            "visibility": "off"
+          }]
+        }, {
+          "featureType": "poi",
+          "stylers": [{
+            "visibility": "off"
+          }]
+        }, {
+          "featureType": "water",
+          "stylers": [{
+            "visibility": "simplified"
+          }, {
+            "saturation": -60
+          }]
+        }]
+      };
+
+      // Get the HTML DOM element that will contain your map 
+      // We are using a div with id="map" seen below in the <body>
+      var mapElement = document.getElementById('map');
+
+      // Create the Google Map using our element and options defined above
+      var map = new google.maps.Map(mapElement, mapOptions);
+
+      // Let's also add a marker while we're at it
+      var marker = new google.maps.Marker({
+        position: new google.maps.LatLng(40.6700, -73.9400),
+        map: map,
+        title: 'Snazzy!'
+      });
+    }
+  </script>
+</head>
+
+<body>
+
+  <div class="wrapper">
+    <h1 class="headline has-text-primary title is-uppercase has-text-centered">Ouverture<br/>3 octobre<br/>Centre Laval</h1>
+    <nav class="navbar is-transparent">
+      <div class="container">
+        <div class="navbar-brand">
+          <a class="navbar-item" href="https://bulma.io">
+            <img src="https://bulma.io/images/bulma-logo.png" alt="Bulma: a modern CSS framework based on Flexbox"
+              width="112" height="28">
+          </a>
+          <div class="navbar-burger burger" data-target="navbarExampleTransparentExample">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+
+        <div id="navbarExampleTransparentExample" class="navbar-menu">
+          <div class="navbar-end">
+            <a class="navbar-item has-text-primary has-text-weight-bold is-uppercase" href="https://bulma.io/">
+              <small>Travail du bois</small>
+            </a>
+
+            <a class="navbar-item has-text-primary has-text-weight-bold is-uppercase" href="https://bulma.io/">
+              <small>Maison et jardin</small>
+            </a>
+
+            <a class="navbar-item has-text-primary has-text-weight-bold is-uppercase" href="https://bulma.io/">
+              <small>Quincaillerie</small>
+            </a>
+
+            <a class="navbar-item has-text-primary has-text-weight-bold is-uppercase" href="/en">
+              <small>EN</small>
+            </a>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <video src="videos/video.mp4" autoplay loop></video>
+    <!-- autoplay muted to add -->
+    <script>
+      // document.getElementById('vid').play();
+    </script>
+  </div>
+  <section class="parallax hero is-primary has-text-centered is-medium">
+    <div class="hero-body">
+      <div class="container">
+        <h2 class="title has-text-accent is-uppercase">
+          Depuis 1978, Lee Valley offre des outils de qualité à ceux qui affectionnent le <span class="has-text-weight-bold has-text-underlined">travail
+            du bois</span>, le <span class="has-text-weight-bold has-text-underlined">jardinage</span> ou les <span
+            class="has-text-weight-bold has-text-underlined">produits de quincaillerie</span>.
+        </h2>
+      </div>
+    </div>
+  </section>
+  <section style="position:relative;">
+    <div id="map">
+    </div>
+    <div class="map-overlay">
+      <table>
+        <tr>
+          <td><span class="is-uppercase has-text-accent has-text-weight-bold">Lee Valley Laval</span></td>
+          <td class="has-text-accent">L-M-M</td>
+          <td class="has-text-accent">9h à 18h</td>
+        </tr>
+        <tr>
+          <td class="has-text-accent">1600 boulevard Le Corbusier,</td>
+          <td class="has-text-accent">J-V</td>
+          <td class="has-text-accent">9h à 21h</td>
+        </tr>
+        <tr>
+          <td class="has-text-accent">Laval, QC H75 1Y9&nbsp;&nbsp;<small><a href="#" class="has-text-underlined has-text-accent">Itinéraire</a></small></td>
+          <td class="has-text-accent">S-D</td>
+          <td class="has-text-accent">9h à 17h</td>
+        </tr>
+      </table>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <br/>
+      <h2 class="has-text-centered title has-text-accent has-text-weight-bold is-uppercase">Magasinez</h2>
+      <br/>
+      <div class="columns">
+        <div class="column is-one-third">
+          <a href="#" class="has-text-weight-bold picture picture-1 is-uppercase has-text-white has-text-centered">
+            Travail du bois
+          </a>
+        </div>
+        <div class="column is-one-third">
+          <a href="#" class="has-text-weight-bold picture picture-2 is-uppercase has-text-white has-text-centered">
+            Travail du bois
+          </a>
+        </div>
+        <div class="column is-one-third">
+          <a href="#" class="has-text-weight-bold picture picture-3 is-uppercase has-text-white has-text-centered">
+            Travail du bois
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </section>
+  <section class="section">
+    <div class="container">
+      <div class="level">
+        <div class="level-left">
+          <small class="has-text-accent">
+            &copy; Copyright 2009 à 2018 Lee Valley Tools Ltd. et Veritas Tools Inc. Tous droits réservés.
+          </small>
+        </div>
+        <div class="level-right">
+          <a href="#">
+            <span class="icon has-text-accent">
+              <i class="fab fa-lg fa-facebook"></i>
+            </span>
+          </a>
+          &nbsp;
+          <a href="#">
+            <span class="icon has-text-accent">
+              <i class="fab fa-lg fa-twitter"></i>
+            </span>
+          </a>
+          &nbsp;
+          <a href="#">
+            <span class="icon has-text-accent">
+              <i class="fab fa-lg fa-instagram"></i>
+            </span>
+          </a>
+          &nbsp;
+          <a href="#">
+            <span class="icon has-text-accent">
+              <i class="fab fa-lg fa-pinterest"></i>
+            </span>
+          </a>
+          &nbsp;
+          <a href="#">
+            <span class="icon has-text-accent">
+              <i class="fab fa-lg fa-youtube"></i>
+            </span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</body>
+
+</html>
