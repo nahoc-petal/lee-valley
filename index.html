@@ -2,11 +2,12 @@
 <html lang="fr">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="Lee Valley Tools Ltd. is a Canadian business specializing in tools and gifts for woodworking and gardening.">
-    <meta name="author" content="Cohan Carpentier - cohan.carpentier@gmail.com">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Lee Valley Tools Ltd. is a Canadian business specializing in tools and gifts for woodworking and gardening.">
+  <meta name="author" content="Cohan Carpentier - cohan.carpentier@gmail.com">
   <title>My custom Bulma website</title>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
   <script defer src="https://use.fontawesome.com/releases/v5.1.0/js/all.js"></script>
   <style type="text/css">
@@ -35,35 +36,199 @@
         // How you would like to style the map. 
         // This is where you would paste any style found on Snazzy Maps.
         styles: [{
-          "featureType": "all",
-          "stylers": [{
-            "saturation": 0
-          }, {
-            "hue": "#e7ecf0"
-          }]
-        }, {
-          "featureType": "road",
-          "stylers": [{
-            "saturation": -70
-          }]
-        }, {
-          "featureType": "transit",
-          "stylers": [{
-            "visibility": "off"
-          }]
-        }, {
-          "featureType": "poi",
-          "stylers": [{
-            "visibility": "off"
-          }]
-        }, {
-          "featureType": "water",
-          "stylers": [{
-            "visibility": "simplified"
-          }, {
-            "saturation": -60
-          }]
-        }]
+            "featureType": "administrative",
+            "elementType": "labels.text.fill",
+            "stylers": [{
+              "color": "#444444"
+            }]
+          },
+          {
+            "featureType": "landscape",
+            "elementType": "all",
+            "stylers": [{
+              "color": "#f2f2f2"
+            }]
+          },
+          {
+            "featureType": "poi",
+            "elementType": "all",
+            "stylers": [{
+              "visibility": "off"
+            }]
+          },
+          {
+            "featureType": "road",
+            "elementType": "all",
+            "stylers": [{
+                "saturation": -100
+              },
+              {
+                "lightness": 45
+              }
+            ]
+          },
+          {
+            "featureType": "road",
+            "elementType": "geometry.fill",
+            "stylers": [{
+                "color": "#00467f"
+              },
+              {
+                "visibility": "on"
+              }
+            ]
+          },
+          {
+            "featureType": "road",
+            "elementType": "geometry.stroke",
+            "stylers": [{
+              "visibility": "off"
+            }]
+          },
+          {
+            "featureType": "road",
+            "elementType": "labels.text.fill",
+            "stylers": [{
+                "visibility": "on"
+              },
+              {
+                "color": "#ff0000"
+              },
+              {
+                "lightness": "100"
+              }
+            ]
+          },
+          {
+            "featureType": "road",
+            "elementType": "labels.text.stroke",
+            "stylers": [{
+              "color": "#00467f"
+            }]
+          },
+          {
+            "featureType": "road.highway",
+            "elementType": "all",
+            "stylers": [{
+              "visibility": "simplified"
+            }]
+          },
+          {
+            "featureType": "road.highway",
+            "elementType": "labels.text.fill",
+            "stylers": [{
+                "visibility": "on"
+              },
+              {
+                "color": "#ffffff"
+              }
+            ]
+          },
+          {
+            "featureType": "road.highway",
+            "elementType": "labels.text.stroke",
+            "stylers": [{
+                "color": "#00467f"
+              },
+              {
+                "visibility": "on"
+              }
+            ]
+          },
+          {
+            "featureType": "road.highway.controlled_access",
+            "elementType": "geometry.fill",
+            "stylers": [{
+              "visibility": "on"
+            }]
+          },
+          {
+            "featureType": "road.highway.controlled_access",
+            "elementType": "labels.icon",
+            "stylers": [{
+                "visibility": "off"
+              },
+              {
+                "hue": "#ff0000"
+              }
+            ]
+          },
+          {
+            "featureType": "road.arterial",
+            "elementType": "geometry.fill",
+            "stylers": [{
+              "visibility": "on"
+            }]
+          },
+          {
+            "featureType": "road.arterial",
+            "elementType": "geometry.stroke",
+            "stylers": [{
+                "visibility": "off"
+              },
+              {
+                "color": "#ffffff"
+              }
+            ]
+          },
+          {
+            "featureType": "road.arterial",
+            "elementType": "labels.icon",
+            "stylers": [{
+              "visibility": "off"
+            }]
+          },
+          {
+            "featureType": "road.local",
+            "elementType": "geometry.fill",
+            "stylers": [{
+              "color": "#cedae3"
+            }]
+          },
+          {
+            "featureType": "road.local",
+            "elementType": "labels.text.fill",
+            "stylers": [{
+              "color": "#00467f"
+            }]
+          },
+          {
+            "featureType": "road.local",
+            "elementType": "labels.text.stroke",
+            "stylers": [{
+                "color": "#d3d3d3"
+              },
+              {
+                "visibility": "off"
+              }
+            ]
+          },
+          {
+            "featureType": "transit",
+            "elementType": "all",
+            "stylers": [{
+              "visibility": "off"
+            }]
+          },
+          {
+            "featureType": "water",
+            "elementType": "all",
+            "stylers": [{
+                "color": "#00467f"
+              },
+              {
+                "visibility": "on"
+              }
+            ]
+          },
+          {
+            "featureType": "water",
+            "elementType": "geometry.fill",
+            "stylers": [{
+              "color": "#cedae3"
+            }]
+          }
+        ]
       };
 
       // Get the HTML DOM element that will contain your map 
@@ -86,13 +251,13 @@
 <body>
 
   <div class="wrapper">
-    <h1 class="headline has-text-primary title is-uppercase has-text-centered">Ouverture<br/>3 octobre<br/>Centre Laval</h1>
+    <h1 class="headline has-text-primary title is-uppercase has-text-centered">Ouverture<br />3 octobre<br />Centre
+      Laval</h1>
     <nav class="navbar is-transparent">
       <div class="container">
         <div class="navbar-brand">
-          <a class="navbar-item" href="https://bulma.io">
-            <img src="https://bulma.io/images/bulma-logo.png" alt="Lee Valley Logo"
-              width="112" height="28">
+          <a class="navbar-item" href="/">
+            <img src="images/logo-lee-valley.png" alt="Lee Valley Logo" />
           </a>
           <div class="navbar-burger burger" data-target="navbarExampleTransparentExample">
             <span></span>
@@ -100,22 +265,21 @@
             <span></span>
           </div>
         </div>
-
         <div id="navbarExampleTransparentExample" class="navbar-menu">
           <div class="navbar-end">
-            <a class="navbar-item has-text-primary has-text-weight-bold is-uppercase" href="https://bulma.io/">
+            <a class="navbar-item has-text-primary has-text-weight-semibold is-uppercase" href="https://bulma.io/">
               <small>Travail du bois</small>
             </a>
 
-            <a class="navbar-item has-text-primary has-text-weight-bold is-uppercase" href="https://bulma.io/">
+            <a class="navbar-item has-text-primary has-text-weight-semibold is-uppercase" href="https://bulma.io/">
               <small>Maison et jardin</small>
             </a>
 
-            <a class="navbar-item has-text-primary has-text-weight-bold is-uppercase" href="https://bulma.io/">
+            <a class="navbar-item has-text-primary has-text-weight-semibold is-uppercase" href="https://bulma.io/">
               <small>Quincaillerie</small>
             </a>
 
-            <a class="navbar-item has-text-primary has-text-weight-bold is-uppercase" href="/en">
+            <a class="navbar-item has-text-primary has-text-weight-semibold is-uppercase" href="/en">
               <small>EN</small>
             </a>
           </div>
@@ -142,7 +306,7 @@
   <section style="position:relative;">
     <div id="map">
     </div>
-    <div class="map-overlay">
+    <div class="map-overlay has-text-weight-semibold">
       <table>
         <tr>
           <td><span class="is-uppercase has-text-accent has-text-weight-bold">Lee Valley Laval</span></td>
@@ -163,24 +327,24 @@
     </div>
   </section>
 
-  <section class="section">
+  <section class="section videos">
     <div class="container">
-      <br/>
-      <h2 class="has-text-centered title has-text-accent has-text-weight-bold is-uppercase">Magasinez</h2>
-      <br/>
+      <br />
+      <h2 class="has-text-centered title has-text-accent has-text-weight-extrabold is-uppercase">Magasinez</h2>
+      <br />
       <div class="columns">
         <div class="column is-one-third">
-          <a href="#" class="has-text-weight-bold picture picture-1 is-uppercase has-text-white has-text-centered">
+          <a href="#" class="has-text-weight-extrabold picture picture-1 is-uppercase has-text-white has-text-centered">
             Travail du bois
           </a>
         </div>
         <div class="column is-one-third">
-          <a href="#" class="has-text-weight-bold picture picture-2 is-uppercase has-text-white has-text-centered">
+          <a href="#" class="has-text-weight-extrabold picture picture-2 is-uppercase has-text-white has-text-centered">
             Travail du bois
           </a>
         </div>
         <div class="column is-one-third">
-          <a href="#" class="has-text-weight-bold picture picture-3 is-uppercase has-text-white has-text-centered">
+          <a href="#" class="has-text-weight-extrabold picture picture-3 is-uppercase has-text-white has-text-centered">
             Travail du bois
           </a>
         </div>

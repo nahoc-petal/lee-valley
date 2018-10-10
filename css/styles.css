@@ -6350,6 +6350,11 @@ label.panel-block {
 .picture-1 {
   background: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url("https://www.datadotdna.com/au/wp-content/uploads/2015/08/tools1.jpg"); }
 
+* {
+  font-family: 'Open Sans', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
+
 .picture-2 {
   background: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url("https://www.datadotdna.com/au/wp-content/uploads/2015/08/tools1.jpg"); }
 
@@ -6385,7 +6390,14 @@ label.panel-block {
   margin-top: 80vh; }
   .parallax .title {
     max-width: 700px;
-    margin: auto; }
+    margin: auto;
+    font-weight: 600; }
+
+.has-text-weight-extrabold {
+  font-weight: 800; }
+
+.videos .title {
+  font-size: 3rem; }
 
 video::-webkit-media-controls {
   display: none !important; }
@@ -6411,14 +6423,19 @@ tr td:not(:last-child) {
   display: block;
   background-size: cover;
   background-position: center;
-  line-height: 350px; }
+  line-height: 350px;
+  font-size: 1.5rem; }
 
 .navbar {
   position: absolute;
   left: 0;
   right: 0;
   background-color: transparent;
-  margin-top: 2rem; }
-  .navbar .navbar-item:not(:last-child):after {
+  margin-top: 2rem;
+  font-size: 1.2rem; }
+  .navbar .navbar-end .navbar-item:not(:last-child):after {
     content: '|';
     margin-left: 1.5rem; }
+
+.navbar-item img {
+  max-height: unset; }

@@ -21,6 +21,12 @@ $primary: $yellow;
     url('https://www.datadotdna.com/au/wp-content/uploads/2015/08/tools1.jpg');
 }
 
+* {
+  font-family: 'Open Sans', sans-serif;
+  -webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
 .picture-2 {
   background:
     linear-gradient(rgba(0, 0, 0, 0.45),
@@ -69,6 +75,17 @@ $primary: $yellow;
   .title {
     max-width: 700px;
     margin: auto;
+    font-weight: 600;
+  }
+}
+
+.has-text-weight-extrabold {
+  font-weight: 800;
+}
+
+.videos {
+  .title {
+    font-size: 3rem;
   }
 }
 
@@ -101,6 +118,7 @@ tr td:not(:last-child) {
   background-size: cover;
   background-position: center;
   line-height: 350px;
+  font-size: 1.5rem;
 }
 
 .navbar {
@@ -109,9 +127,15 @@ tr td:not(:last-child) {
   right: 0;
   background-color: transparent;
   margin-top: 2rem;
+  font-size: 1.2rem;
 
-  .navbar-item:not(:last-child):after {
+  
+  .navbar-end .navbar-item:not(:last-child):after {
     content: '|';
     margin-left: 1.5rem;
   }
+}
+
+.navbar-item img {
+  max-height: unset;
 }
