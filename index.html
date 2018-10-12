@@ -11,241 +11,182 @@
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
   <script defer src="https://use.fontawesome.com/releases/v5.1.0/js/all.js"></script>
-  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
+  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBbooGlblJpaIEwcBhdMhSUlXo5_xB-IxA&callback=init"
+    async defer></script>
   <script type="text/javascript">
-    // When the window has finished loading create our google map below
     google.maps.event.addDomListener(window, 'load', init);
 
     function init() {
-      // Basic options for a simple Google Map
-      // For more options see: https://developers.google.com/maps/documentation/javascript/reference#MapOptions
       var mapOptions = {
-        // How zoomed in you want the map to start at (always required)
-        zoom: 11,
-
-        // The latitude and longitude to center the map (always required)
-        center: new google.maps.LatLng(40.6700, -73.9400), // New York
-
-        // How you would like to style the map. 
-        // This is where you would paste any style found on Snazzy Maps.
-        styles: [{
-            "featureType": "administrative",
-            "elementType": "labels.text.fill",
-            "stylers": [{
-              "color": "#444444"
+          zoom: 11,
+          center: new google.maps.LatLng(45.5615419, -73.7313895),
+          styles: [{
+            featureType: "administrative",
+            elementType: "labels.text.fill",
+            stylers: [{
+              color: "#444444"
             }]
-          },
-          {
-            "featureType": "landscape",
-            "elementType": "all",
-            "stylers": [{
-              "color": "#f2f2f2"
+          }, {
+            featureType: "landscape",
+            elementType: "all",
+            stylers: [{
+              color: "#f2f2f2"
             }]
-          },
-          {
-            "featureType": "poi",
-            "elementType": "all",
-            "stylers": [{
-              "visibility": "off"
+          }, {
+            featureType: "poi",
+            elementType: "all",
+            stylers: [{
+              visibility: "off"
             }]
-          },
-          {
-            "featureType": "road",
-            "elementType": "all",
-            "stylers": [{
-                "saturation": -100
-              },
-              {
-                "lightness": 45
-              }
-            ]
-          },
-          {
-            "featureType": "road",
-            "elementType": "geometry.fill",
-            "stylers": [{
-                "color": "#00467f"
-              },
-              {
-                "visibility": "on"
-              }
-            ]
-          },
-          {
-            "featureType": "road",
-            "elementType": "geometry.stroke",
-            "stylers": [{
-              "visibility": "off"
+          }, {
+            featureType: "road",
+            elementType: "all",
+            stylers: [{
+              saturation: -100
+            }, {
+              lightness: 45
             }]
-          },
-          {
-            "featureType": "road",
-            "elementType": "labels.text.fill",
-            "stylers": [{
-                "visibility": "on"
-              },
-              {
-                "color": "#ff0000"
-              },
-              {
-                "lightness": "100"
-              }
-            ]
-          },
-          {
-            "featureType": "road",
-            "elementType": "labels.text.stroke",
-            "stylers": [{
-              "color": "#00467f"
+          }, {
+            featureType: "road",
+            elementType: "geometry.fill",
+            stylers: [{
+              color: "#00467f"
+            }, {
+              visibility: "on"
             }]
-          },
-          {
-            "featureType": "road.highway",
-            "elementType": "all",
-            "stylers": [{
-              "visibility": "simplified"
+          }, {
+            featureType: "road",
+            elementType: "geometry.stroke",
+            stylers: [{
+              visibility: "off"
             }]
-          },
-          {
-            "featureType": "road.highway",
-            "elementType": "labels.text.fill",
-            "stylers": [{
-                "visibility": "on"
-              },
-              {
-                "color": "#ffffff"
-              }
-            ]
-          },
-          {
-            "featureType": "road.highway",
-            "elementType": "labels.text.stroke",
-            "stylers": [{
-                "color": "#00467f"
-              },
-              {
-                "visibility": "on"
-              }
-            ]
-          },
-          {
-            "featureType": "road.highway.controlled_access",
-            "elementType": "geometry.fill",
-            "stylers": [{
-              "visibility": "on"
+          }, {
+            featureType: "road",
+            elementType: "labels.text.fill",
+            stylers: [{
+              visibility: "on"
+            }, {
+              color: "#ff0000"
+            }, {
+              lightness: "100"
             }]
-          },
-          {
-            "featureType": "road.highway.controlled_access",
-            "elementType": "labels.icon",
-            "stylers": [{
-                "visibility": "off"
-              },
-              {
-                "hue": "#ff0000"
-              }
-            ]
-          },
-          {
-            "featureType": "road.arterial",
-            "elementType": "geometry.fill",
-            "stylers": [{
-              "visibility": "on"
+          }, {
+            featureType: "road",
+            elementType: "labels.text.stroke",
+            stylers: [{
+              color: "#00467f"
             }]
-          },
-          {
-            "featureType": "road.arterial",
-            "elementType": "geometry.stroke",
-            "stylers": [{
-                "visibility": "off"
-              },
-              {
-                "color": "#ffffff"
-              }
-            ]
-          },
-          {
-            "featureType": "road.arterial",
-            "elementType": "labels.icon",
-            "stylers": [{
-              "visibility": "off"
+          }, {
+            featureType: "road.highway",
+            elementType: "all",
+            stylers: [{
+              visibility: "simplified"
             }]
-          },
-          {
-            "featureType": "road.local",
-            "elementType": "geometry.fill",
-            "stylers": [{
-              "color": "#cedae3"
+          }, {
+            featureType: "road.highway",
+            elementType: "labels.text.fill",
+            stylers: [{
+              visibility: "on"
+            }, {
+              color: "#ffffff"
             }]
-          },
-          {
-            "featureType": "road.local",
-            "elementType": "labels.text.fill",
-            "stylers": [{
-              "color": "#00467f"
+          }, {
+            featureType: "road.highway",
+            elementType: "labels.text.stroke",
+            stylers: [{
+              color: "#00467f"
+            }, {
+              visibility: "on"
             }]
-          },
-          {
-            "featureType": "road.local",
-            "elementType": "labels.text.stroke",
-            "stylers": [{
-                "color": "#d3d3d3"
-              },
-              {
-                "visibility": "off"
-              }
-            ]
-          },
-          {
-            "featureType": "transit",
-            "elementType": "all",
-            "stylers": [{
-              "visibility": "off"
+          }, {
+            featureType: "road.highway.controlled_access",
+            elementType: "geometry.fill",
+            stylers: [{
+              visibility: "on"
             }]
-          },
-          {
-            "featureType": "water",
-            "elementType": "all",
-            "stylers": [{
-                "color": "#00467f"
-              },
-              {
-                "visibility": "on"
-              }
-            ]
-          },
-          {
-            "featureType": "water",
-            "elementType": "geometry.fill",
-            "stylers": [{
-              "color": "#cedae3"
+          }, {
+            featureType: "road.highway.controlled_access",
+            elementType: "labels.icon",
+            stylers: [{
+              visibility: "off"
+            }, {
+              hue: "#ff0000"
             }]
-          }
-        ]
-      };
-
-      // Get the HTML DOM element that will contain your map 
-      // We are using a div with id="map" seen below in the <body>
-      var mapElement = document.getElementById('map');
-
-      // Create the Google Map using our element and options defined above
-      var map = new google.maps.Map(mapElement, mapOptions);
-
-      // Let's also add a marker while we're at it
-      var marker = new google.maps.Marker({
-        position: new google.maps.LatLng(40.6700, -73.9400),
-        map: map,
-        //title: 'Snazzy!'
-      });
+          }, {
+            featureType: "road.arterial",
+            elementType: "geometry.fill",
+            stylers: [{
+              visibility: "on"
+            }]
+          }, {
+            featureType: "road.arterial",
+            elementType: "geometry.stroke",
+            stylers: [{
+              visibility: "off"
+            }, {
+              color: "#ffffff"
+            }]
+          }, {
+            featureType: "road.arterial",
+            elementType: "labels.icon",
+            stylers: [{
+              visibility: "off"
+            }]
+          }, {
+            featureType: "road.local",
+            elementType: "geometry.fill",
+            stylers: [{
+              color: "#cedae3"
+            }]
+          }, {
+            featureType: "road.local",
+            elementType: "labels.text.fill",
+            stylers: [{
+              color: "#00467f"
+            }]
+          }, {
+            featureType: "road.local",
+            elementType: "labels.text.stroke",
+            stylers: [{
+              color: "#d3d3d3"
+            }, {
+              visibility: "off"
+            }]
+          }, {
+            featureType: "transit",
+            elementType: "all",
+            stylers: [{
+              visibility: "off"
+            }]
+          }, {
+            featureType: "water",
+            elementType: "all",
+            stylers: [{
+              color: "#00467f"
+            }, {
+              visibility: "on"
+            }]
+          }, {
+            featureType: "water",
+            elementType: "geometry.fill",
+            stylers: [{
+              color: "#cedae3"
+            }]
+          }]
+        },
+        mapElement = document.getElementById("map"),
+        map = new google.maps.Map(mapElement, mapOptions),
+        marker = new google.maps.Marker({
+          position: new google.maps.LatLng(40.67, -73.94),
+          map: map
+        });
     }
   </script>
 </head>
 
 <body>
-
   <div class="wrapper">
-    <h1 class="headline has-text-primary title is-uppercase has-text-centered">Ouverture<br />3 octobre<br />Centre
-      Laval</h1>
+    <h1 class="headline has-text-primary title is-uppercase has-text-centered">Ouverture<br />3 octobre<br />Centre Laval</h1>
     <nav class="navbar is-transparent">
       <div class="container">
         <div class="navbar-brand">
@@ -271,7 +212,6 @@
             <a class="navbar-item has-text-primary has-text-weight-semibold is-uppercase" href="#">
               <small>Quincaillerie</small>
             </a>
-
             <a class="navbar-item has-text-primary has-text-weight-semibold is-uppercase" href="/en">
               <small>EN</small>
             </a>
@@ -285,14 +225,14 @@
       document.getElementById('video').setAttribute('src', videoSource);
       setTimeout(function () {
         document.getElementById('video').play();
-      }, 3000);
+      }, 0);
     </script>
   </div>
   <section class="parallax hero is-primary has-text-centered is-medium">
     <div class="hero-body">
       <div class="container">
         <h2 class="title has-text-accent is-uppercase">
-          réée en 1978, Lee Valley offre des outils de qualité à ceux qui s’intéressent au <span class="has-text-weight-bold has-text-underlined">travail
+          Créée en 1978, Lee Valley offre des outils de qualité à ceux qui s’intéressent au <span class="has-text-weight-bold has-text-underlined">travail
             du bois</span>, au <span class="has-text-weight-bold has-text-underlined">jardinage</span> ou aux <span
             class="has-text-weight-bold has-text-underlined">produits de quincaillerie</span>.
         </h2>
@@ -315,7 +255,8 @@
           <td class="has-text-accent">9h à 21h</td>
         </tr>
         <tr>
-          <td class="has-text-accent">Laval, QC H75 1Y9&nbsp;&nbsp;<small><a href="#" class="has-text-underlined has-text-accent">Itinéraire</a></small></td>
+          <td class="has-text-accent">Laval, QC H75 1Y9&nbsp;&nbsp;<small><a target="_blank" href="https://www.google.com/maps/place/Centre+Laval/@45.5615419,-73.7313895,15z/data=!4m5!3m4!1s0x0:0x25e5b172abd017f0!8m2!3d45.5615419!4d-73.7313895"
+                class="has-text-underlined has-text-accent">Itinéraire</a></small></td>
           <td class="has-text-accent">S</td>
           <td class="has-text-accent">9h à 17h</td>
         </tr>
@@ -327,7 +268,6 @@
       </table>
     </div>
   </section>
-
   <section class="section videos">
     <div class="container">
       <br />
@@ -402,29 +342,17 @@
   </section>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-
-      // Get all "navbar-burger" elements
       const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
-
-      // Check if there are any navbar burgers
       if ($navbarBurgers.length > 0) {
-
-        // Add a click event on each of them
         $navbarBurgers.forEach(el => {
           el.addEventListener('click', () => {
-
-            // Get the target from the "data-target" attribute
             const target = el.dataset.target;
             const $target = document.getElementById(target);
-
-            // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
             el.classList.toggle('is-active');
             $target.classList.toggle('is-active');
-
           });
         });
       }
-
     });
   </script>
 </body>
