@@ -11,15 +11,16 @@
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
   <script defer src="https://use.fontawesome.com/releases/v5.1.0/js/all.js"></script>
-  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBbooGlblJpaIEwcBhdMhSUlXo5_xB-IxA&callback=init"
+  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBMZL0k4sgOVqpJO6ybxaJOYAZDfHdyqEs&callback=init"
     async defer></script>
   <script type="text/javascript">
     google.maps.event.addDomListener(window, 'load', init);
 
     function init() {
       var mapOptions = {
-          zoom: 11,
-          center: new google.maps.LatLng(45.5615419, -73.7313895),
+          zoom: 13,
+          gestureHandling: 'none',
+          center: new google.maps.LatLng(45.5504292, -73.7342563),
           styles: [{
             featureType: "administrative",
             elementType: "labels.text.fill",
@@ -176,17 +177,21 @@
         },
         mapElement = document.getElementById("map"),
         map = new google.maps.Map(mapElement, mapOptions),
+        image = 'images/marker.png';
         marker = new google.maps.Marker({
-          position: new google.maps.LatLng(40.67, -73.94),
-          map: map
+          title: "Lee Valley Tools",
+          position: new google.maps.LatLng(45.5604255, -73.7342563),
+          map: map,
+          icon: image
         });
     }
   </script>
 </head>
 
-<body>
-  <div class="wrapper">
-    <h1 class="headline has-text-primary title is-uppercase has-text-centered">Ouverture<br />3 octobre<br />Centre Laval</h1>
+<body id="body">
+  <div id="video-wrapper" class="wrapper">
+    <h1 id="headline" class="headline has-text-primary title is-uppercase has-text-centered">Maintenant<br />ouvert au<br />Centre
+      Laval</h1>
     <nav class="navbar is-transparent">
       <div class="container">
         <div class="navbar-brand">
@@ -201,49 +206,57 @@
         </div>
         <div id="navbarExampleTransparentExample" class="navbar-menu">
           <div class="navbar-end">
-            <a class="navbar-item has-text-primary has-text-weight-semibold is-uppercase" href="#">
+            <a class="navbar-item has-text-primary has-text-weight-semibold is-uppercase" href="http://www.leevalley.com/fr/Wood/Index.aspx">
               <small>Travail du bois</small>
             </a>
-
-            <a class="navbar-item has-text-primary has-text-weight-semibold is-uppercase" href="#">
-              <small>Maison et jardin</small>
-            </a>
-
-            <a class="navbar-item has-text-primary has-text-weight-semibold is-uppercase" href="#">
+            <a class="navbar-item has-text-primary has-text-weight-semibold is-uppercase" href="http://www.leevalley.com/fr/Hardware/Index.aspx">
               <small>Quincaillerie</small>
             </a>
-            <a class="navbar-item has-text-primary has-text-weight-semibold is-uppercase" href="/en">
+            <a class="navbar-item has-text-primary has-text-weight-semibold is-uppercase" href="http://www.leevalley.com/fr/Garden/Index.aspx">
+              <small>Maison et jardinage</small>
+            </a>
+            <a class="navbar-item has-text-primary has-text-weight-semibold is-uppercase" href="en">
               <small>EN</small>
             </a>
           </div>
         </div>
       </div>
     </nav>
-    <video id="video" autoplay="true" muted="muted" loop></video>
-    <script>
-      var videoSource = 'videos/video' + (Math.floor(Math.random() * 3) + 1) + '.mov';
+
+    <video id="video" autoplay="true" muted="muted"></video>
+    <script type="text/javascript">
+      var rng = (Math.floor(Math.random() * 3) + 1);
+      var videoSource = 'videos/video' + rng + '.mov';
       document.getElementById('video').setAttribute('src', videoSource);
-      setTimeout(function () {
-        document.getElementById('video').play();
-      }, 0);
+
+      var videoPlayer = document.getElementById('video');
+
+      videoPlayer.onended = function(){
+          if(rng < 3) {
+            rng = rng + 1;
+          } else {
+            rng = 1;
+          }
+          videoPlayer.src = 'videos/video' + rng + '.mov';
+      }
     </script>
   </div>
   <section class="parallax hero is-primary has-text-centered is-medium">
     <div class="hero-body">
       <div class="container">
         <h2 class="title has-text-accent is-uppercase">
-          Créée en 1978, Lee Valley offre des outils de qualité à ceux qui s’intéressent au <span class="has-text-weight-bold has-text-underlined">travail
-            du bois</span>, au <span class="has-text-weight-bold has-text-underlined">jardinage</span> ou aux <span
-            class="has-text-weight-bold has-text-underlined">produits de quincaillerie</span>.
+          Créée en 1978, Lee Valley offre des outils de qualité à ceux qui s’intéressent au <a href="http://www.leevalley.com/fr/Wood/Index.aspx" class="has-text-weight-bold has-text-underlined">travail
+            du bois</a>, au <a href="http://www.leevalley.com/fr/Garden/Index.aspx" class="has-text-weight-bold has-text-underlined">jardinage</a> ou aux <a href="http://www.leevalley.com/fr/Hardware/Index.aspx"
+            class="has-text-weight-bold has-text-underlined">produits de quincaillerie</a>.
         </h2>
       </div>
     </div>
   </section>
-  <section style="position:relative;">
+  <section id="map-view" style="position:relative;">
     <div id="map">
     </div>
-    <div class="map-overlay has-text-weight-semibold">
-      <table>
+    <div id="map-overlay" class="map-overlay has-text-weight-semibold">
+      <table class="table-desktop is-fullwidth">
         <tr>
           <td><span class="is-uppercase has-text-accent has-text-weight-bold">Lee Valley Laval</span></td>
           <td class="has-text-accent">L-M</td>
@@ -255,15 +268,47 @@
           <td class="has-text-accent">9h à 21h</td>
         </tr>
         <tr>
-          <td class="has-text-accent">Laval, QC H75 1Y9&nbsp;&nbsp;<small><a target="_blank" href="https://www.google.com/maps/place/Centre+Laval/@45.5615419,-73.7313895,15z/data=!4m5!3m4!1s0x0:0x25e5b172abd017f0!8m2!3d45.5615419!4d-73.7313895"
-                class="has-text-underlined has-text-accent">Itinéraire</a></small></td>
+          <td class="has-text-accent">Laval, QC H75 1Y9</td>
           <td class="has-text-accent">S</td>
           <td class="has-text-accent">9h à 17h</td>
         </tr>
         <tr>
-          <td class="has-text-accent"></td>
+          <td class="has-text-accent"><small><a target="_blank" href="https://goo.gl/maps/FpcyWnRNTYv"
+            class="has-text-underlined has-text-accent">Itinéraire</a></small></td>
           <td class="has-text-accent">D</td>
           <td class="has-text-accent">10h à 17h</td>
+        </tr>
+      </table>
+      <table class="table-mobile is-fullwidth">
+        <tr>
+          <td colspan="2" class="has-text-centered no-padding "><span class="is-uppercase has-text-accent has-text-weight-bold">Lee Valley - Centre Laval</span></td>
+        </tr>
+        <tr>
+          <td colspan="2" class="has-text-centered no-padding has-text-accent">1600 boulevard Le Corbusier,</td>
+        </tr>
+        <tr>
+            <td colspan="2" class="has-text-centered no-padding has-text-accent">Laval, QC H75 1Y9</td>
+        </tr>
+        <tr>
+            <td colspan="2" class="has-text-centered no-padding has-text-accent"><small><a target="_blank" href="https://goo.gl/maps/FpcyWnRNTYv"
+              class="has-text-underlined has-text-accent">Itinéraire</a></small></td>
+        </tr>
+        <tr><td colspan="2">&nbsp;</td></tr>
+        <tr>
+            <td class="has-text-right has-text-accent">L-M</td>
+            <td class="has-text-left has-text-accent no-padding">9h à 18h</td>
+        </tr>
+        <tr>
+          <td class="has-text-right has-text-accent">M-J-V</td>
+          <td class="has-text-left has-text-accent no-padding">9h à 21h</td>
+        </tr>
+        <tr>
+            <td class="has-text-right has-text-accent">S</td>
+            <td class="has-text-left has-text-accent no-padding">9h à 17h</td>
+        </tr>
+        <tr>
+            <td class="has-text-right has-text-accent">D</td>
+            <td class="has-text-left has-text-accent no-padding">10h à 17h</td>
         </tr>
       </table>
     </div>
@@ -275,30 +320,30 @@
       <br />
       <div class="columns">
         <div class="column is-one-third">
-          <a href="#">
-            <span class="text has-text-weight-extrabold is-uppercase has-text-white has-text-centered">Jardinage</span>
+          <a href="http://www.leevalley.com/fr/Wood/Index.aspx">
             <div class="picture picture-1"></div>
+            <span class="text has-text-weight-extrabold is-uppercase has-text-white has-text-centered">Travail du bois</span>
+            <video src="videos/video-footer-1.mov" autoplay="true" muted="muted" loop></video>
+          </a>
+        </div>
+        <div class="column is-one-third">
+          <a href="http://www.leevalley.com/fr/Hardware/Index.aspx">
+            <div class="picture picture-3"></div>
+            <span class="text has-text-weight-extrabold is-uppercase has-text-white has-text-centered">Quincaillerie</span>
+            <video src="videos/video-footer-3.mov" autoplay="true" muted="muted" loop></video>
+          </a>
+        </div>
+        <div class="column is-one-third">
+          <a href="http://www.leevalley.com/fr/Garden/Index.aspx">
+            <div class="picture picture-2"></div>
+            <span class="text has-text-weight-extrabold is-uppercase has-text-white has-text-centered">Maison et jardinage</span>
             <video src="videos/video-footer-2.mov" autoplay="true" muted="muted" loop></video>
-          </a>
-        </div>
-        <div class="column is-one-third">
-          <a href="#">
-            <span class="text has-text-weight-extrabold is-uppercase has-text-white has-text-centered">Travail du bois</span>
-            <div class="picture picture-2"></div>
-            <video src="videos/video-footer-3.mov" autoplay="true" muted="muted" loop></video>
-          </a>
-        </div>
-        <div class="column is-one-third">
-          <a href="#">
-            <span class="text has-text-weight-extrabold is-uppercase has-text-white has-text-centered">Travail du bois</span>
-            <div class="picture picture-2"></div>
-            <video src="videos/video-footer-3.mov" autoplay="true" muted="muted" loop></video>
           </a>
         </div>
       </div>
     </div>
   </section>
-  <section class="section">
+  <section id="footer" class="section">
     <div class="container">
       <div class="level">
         <div class="level-left">
@@ -307,31 +352,31 @@
           </small>
         </div>
         <div class="level-right">
-          <a href="#">
+          <a href="https://www.facebook.com/LeeValleyTools/">
             <span class="icon has-text-accent">
               <i class="fab fa-lg fa-facebook"></i>
             </span>
           </a>
           &nbsp;
-          <a href="#">
+          <a href="https://twitter.com/leevalleytools">
             <span class="icon has-text-accent">
               <i class="fab fa-lg fa-twitter"></i>
             </span>
           </a>
           &nbsp;
-          <a href="#">
+          <a href="https://www.instagram.com/leevalleytools/">
             <span class="icon has-text-accent">
               <i class="fab fa-lg fa-instagram"></i>
             </span>
           </a>
           &nbsp;
-          <a href="#">
+          <a href="https://www.pinterest.fr/leevalleytools/?eq=lee%20valley&etslf=5124">
             <span class="icon has-text-accent">
               <i class="fab fa-lg fa-pinterest"></i>
             </span>
           </a>
           &nbsp;
-          <a href="#">
+          <a href="https://www.youtube.com/user/LeeValleyTools">
             <span class="icon has-text-accent">
               <i class="fab fa-lg fa-youtube"></i>
             </span>
@@ -349,10 +394,78 @@
             const target = el.dataset.target;
             const $target = document.getElementById(target);
             el.classList.toggle('is-active');
+            document.getElementById('headline').classList.toggle('is-hidden');
             $target.classList.toggle('is-active');
           });
         });
       }
+
+      function scrolledPastHeader() {
+        var winheight = window.innerHeight || (document.documentElement || document.body).clientHeight
+        var scrollTop = window.pageYOffset || (document.documentElement || document.body.parentNode || document.body)
+          .scrollTop
+
+        if(scrollTop > winheight) {
+          return true;
+        }
+        return false;
+      }
+
+      function scrolledPastYellowBlock() {
+        var winheight = window.innerHeight || (document.documentElement || document.body).clientHeight
+        var scrollTop = window.pageYOffset || (document.documentElement || document.body.parentNode || document.body)
+          .scrollTop
+
+        if(scrollTop > winheight * 2 - 100) {
+          return true;
+        }
+        return false;
+      }
+
+      window.onload = function() {
+        if(scrolledPastHeader()) {
+          if(!!document.getElementById('video-wrapper')) {
+            document.getElementById('video-wrapper').style.opacity = 0;
+            document.getElementById('video-wrapper').style.zIndex = -1;
+          }
+          if(!!document.getElementById('map-wrapper')) {
+            document.getElementById('video-wrapper').style.opacity = 1;
+            document.getElementById('video-wrapper').style.zIndex = 1;
+          }
+        } else {
+          if(!!document.getElementById('video-wrapper')) {
+            document.getElementById('video-wrapper').style.opacity = 1;
+            document.getElementById('video-wrapper').style.zIndex = 1;
+          }
+          if(!!document.getElementById('map-wrapper')) {
+            document.getElementById('video-wrapper').style.opacity = 0;
+            document.getElementById('video-wrapper').style.zIndex = -1;
+          }
+        }
+      };
+
+      window.addEventListener("scroll", function () {
+        if(scrolledPastHeader()) {
+          if(!!document.getElementById('video-wrapper')) {
+            document.getElementById('video-wrapper').style.opacity = 0;
+            document.getElementById('video-wrapper').style.zIndex = -1;
+          }
+          if(!!document.getElementById('map-wrapper')) {
+            document.getElementById('video-wrapper').style.opacity = 1;
+            document.getElementById('video-wrapper').style.zIndex = 1;
+          }
+        } else {
+          if(!!document.getElementById('video-wrapper')) {
+            document.getElementById('video-wrapper').style.opacity = 1;
+            document.getElementById('video-wrapper').style.zIndex = 1;
+          }
+          if(!!document.getElementById('map-wrapper')) {
+            document.getElementById('video-wrapper').style.opacity = 0;
+            document.getElementById('video-wrapper').style.zIndex = -1;
+          }
+        }
+
+      }, false)
     });
   </script>
 </body>
